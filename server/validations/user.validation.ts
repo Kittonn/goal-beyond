@@ -1,11 +1,16 @@
 import Joi from "joi";
 
 const registerSchema = Joi.object().keys({
-  name: Joi.string().min(1).alphanum().required(),
+  name: Joi.string().alphanum().required(),
   email: Joi.string().email().required(),
   password: Joi.string()
     .regex(/^[a-zA-Z0-9]{3,30}$/)
     .required(),
 });
 
-export { registerSchema };
+const loginSchema = Joi.object().keys({
+  email: Joi.string().email().required(),
+  password: Joi.string().required(),
+});
+
+export { registerSchema, loginSchema };

@@ -1,4 +1,4 @@
-import { logEvents } from "./logger";
+import { logEvents } from "./logger.middleware";
 import { Request, Response, NextFunction } from "express";
 
 const errorHandler = (
