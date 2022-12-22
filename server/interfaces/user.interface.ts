@@ -5,6 +5,6 @@ export interface UserI {
   password?: string;
   createAt: NativeDate;
   updatedAt: NativeDate;
-  _v: number;
+  __v: number;
 }
  
