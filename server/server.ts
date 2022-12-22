@@ -1,5 +1,6 @@
 import express, { Application, Request, Response } from "express";
 import { config } from "dotenv";
+import helmet from "helmet";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import { corsOptions } from "./configs/corsOptions";
@@ -19,6 +20,7 @@ const PORT = process.env.PORT || 5000;
 const app: Application = express();
 
 app.use(logger);
+app.use(helmet());
 app.use(cors<Request>(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
