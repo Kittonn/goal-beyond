@@ -1,3 +1,6 @@
-const allowedOrigins = ["http://localhost:5000/", "http://localhost:5173/"];
+import { config } from "dotenv";
 
+config();
+
+const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(",") || [];
 export { allowedOrigins };
