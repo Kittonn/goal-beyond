@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "../store/store";
 import Loading from "../components/Loading";
 import { useNavigate } from "react-router-dom";
-import { userLogin } from "../store/authAction";
+import { userLogin } from "../store/auth/authAction";
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const Login: React.FC = () => {
 
   useEffect(() => {
     if (user) {
-      navigate("/profile");
+      navigate("/");
     }
   }, [navigate, user]);
 

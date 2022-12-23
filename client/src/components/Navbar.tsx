@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "../store/store";
-import { logout, setCredentials } from "../store/authSlice";
-import { useGetDetailsQuery } from "../store/authService";
+import { logout, setCredentials } from "../store/auth/authSlice";
+import { useGetDetailsQuery } from "../store/auth/authService";
 
 const Navbar: React.FC = () => {
   const { user } = useSelector((state: RootState) => state.auth);

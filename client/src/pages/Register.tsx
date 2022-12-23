@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "../store/store";
-import { registerUser } from "../store/authAction";
+import { registerUser } from "../store/auth/authAction";
 import { useNavigate } from "react-router-dom";
 
 const Register: React.FC = () => {
