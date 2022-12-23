@@ -6,13 +6,16 @@ import Register from "./pages/Register";
 import Profile from "./pages/Profile";
 import Home from "./pages/Home";
 import ProtectProfile from "./components/ProtectProfile";
+import ProtectHome from "./components/ProtectHome";
 
 const App: React.FC = () => {
   return (
     <div className="container mx-auto">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route element={<ProtectHome />}>
+          <Route path="/" element={<Home />} />
+        </Route>
         <Route element={<ProtectProfile />}>
           <Route path="/profile" element={<Profile />} />
         </Route>

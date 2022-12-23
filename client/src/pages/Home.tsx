@@ -13,11 +13,7 @@ const Home: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    if (!user) {
-      navigate("/login");
-    } else {
-      dispatch(getGoals());
-    }
+    dispatch(getGoals());
   }, [dispatch, navigate, user, error, success]);
 
   return (
