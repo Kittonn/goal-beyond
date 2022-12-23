@@ -9,7 +9,7 @@ const corsOptions: CorsOptions = {
       callback(new Error("Not allowed by CORS"));
     }
   },
-  credentials: true,
+  // credentials: true,
   methods: ["GET", "POST", "PATCH", "DELETE"],
   optionsSuccessStatus: 200,
 };
