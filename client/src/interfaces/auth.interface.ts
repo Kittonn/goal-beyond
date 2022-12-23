@@ -15,6 +15,7 @@ export interface RegisterI {
   name: string;
   email: string;
   password: string;
+  password2?: string;
 }
 
 export interface LoginI {

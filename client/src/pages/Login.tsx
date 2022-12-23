@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { LoginI } from "../interfaces/auth.interface";
 
+
 const Login: React.FC = () => {
   const [formData, setFormData] = useState<LoginI>({
     email: "",
@@ -13,8 +14,20 @@ const Login: React.FC = () => {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(formData);
-  }
+    if (formData.email === "" || formData.password === "") {
+      return alert("Please fill in all fields");
+    } else {
+      const userData = {
+        email: formData.email,
+        password: formData.password,
+      };
+    }
+
+    setFormData({
+      email: "",
+      password: "",
+    });
+  };
 
   return (
     <div>

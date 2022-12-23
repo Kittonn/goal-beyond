@@ -3,7 +3,7 @@ import { RegisterI, LoginI } from "../interfaces/auth.interface";
 
 const register = async (userData: RegisterI) => {
   const response = await axios.post(
-    `${process.env.REACT_APP_API_URL}/users/`,
+    `${import.meta.env.VITE_API_URL}/users`,
     userData
   );
   if (response.data) {
@@ -14,7 +14,7 @@ const register = async (userData: RegisterI) => {
 
 const login = async (userData: LoginI) => {
   const response = await axios.post(
-    `${process.env.REACT_APP_API_URL}/users/login`,
+    `${import.meta.env.VITE_API_URL}/users/login`,
     userData
   );
   if (response.data) {

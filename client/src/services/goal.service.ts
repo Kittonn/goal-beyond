@@ -8,7 +8,7 @@ const createGoal = async (goalData: GoalBodyI, token: string) => {
     },
   };
   const response = await axios.post(
-    `${process.env.REACT_APP_API_URL}/goals/`,
+    `${import.meta.env.VITE_API_URL}/goals/`,
     goalData,
     config
   );
@@ -22,7 +22,7 @@ const getGoals = async (token: string) => {
     },
   };
   const response = await axios.get(
-    `${process.env.REACT_APP_API_URL}/goals/`,
+    `${import.meta.env.VITE_API_URL}/goals/`,
     config
   );
   return response.data;
@@ -35,7 +35,7 @@ const deleteGoal = async (goalId: string, token: string) => {
     },
   };
   const response = await axios.delete(
-    `${process.env.REACT_APP_API_URL}/goals/${goalId}`,
+    `${import.meta.env.VITE_API_URL}/goals/${goalId}`,
     config
   );
   return response.data;
