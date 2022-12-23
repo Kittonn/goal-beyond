@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   const { data, isFetching } = useGetDetailsQuery("userDetails", {
-    pollingInterval: 90000,
+    pollingInterval: 900000,
   });
 
   useEffect(() => {
