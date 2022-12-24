@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { RootState, AppDispatch } from "../store/store";
 import { getGoals } from "../store/goal/goalAction";
+import GoalItem from "../components/GoalItem";
+import GoalInput from "../components/GoalInput";
 
 const Home: React.FC = () => {
   const { goals, success, loading, error } = useSelector(
@@ -19,9 +21,10 @@ const Home: React.FC = () => {
   return (
     <div>
       <h1>Goal</h1>
+      <GoalInput />
       {goals.map((goal) => (
         <div key={goal._id}>
-          <h3>{goal.text}</h3>
+          <GoalItem item={goal} />
         </div>
       ))}
     </div>

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getGoals } from "./goalAction";
+import { getGoals, deleteGoal, createGoal } from "./goalAction";
 
 interface GoalI {
   _id: string;
@@ -38,6 +38,30 @@ export const goalSlice = createSlice({
       state.goals = action.payload;
     });
     builder.addCase(getGoals.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    });
+    builder.addCase(deleteGoal.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(deleteGoal.fulfilled, (state, action) => {
+      state.loading = false;
+      state.goals = state.goals.filter((goal) => goal._id !== action.payload);
+    });
+    builder.addCase(deleteGoal.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    });
+    builder.addCase(createGoal.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(createGoal.fulfilled, (state, action) => {
+      state.loading = false;
+      state.goals.push(action.payload);
+    });
+    builder.addCase(createGoal.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload;
     });
