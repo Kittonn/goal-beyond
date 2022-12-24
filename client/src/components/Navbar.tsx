@@ -2,22 +2,11 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "../store/store";
-import { logout, setCredentials } from "../store/auth/authSlice";
-import { useGetDetailsQuery } from "../store/auth/authService";
+import { logout } from "../store/auth/authSlice";
 
 const Navbar: React.FC = () => {
   const { user } = useSelector((state: RootState) => state.auth);
   const dispatch = useDispatch<AppDispatch>();
-
-  const { data, isFetching } = useGetDetailsQuery("userDetails", {
-    pollingInterval: 900000,
-  });
-
-  useEffect(() => {
-    if (data) {
-      dispatch(setCredentials(data));
-    }
-  }, [data, dispatch]);
 
   return (
     <div>

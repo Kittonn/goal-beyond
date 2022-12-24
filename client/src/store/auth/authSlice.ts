@@ -1,9 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { registerUser, userLogin } from "./authAction";
 
+const user = localStorage.getItem("user") ? localStorage.getItem("user") : null;
 const userToken = localStorage.getItem("userToken")
-  ? localStorage.getItem("userToken")
-  : null;
 
 interface UserI {
   _id: string;
@@ -22,7 +21,8 @@ interface AuthState {
 
 const initialState: AuthState = {
   loading: false,
-  user: null,
+  user: user ? JSON.parse(user) : null,
+  // user: null,
   userToken,
   error: null,
   success: false,
@@ -33,14 +33,11 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     logout: (state) => {
-      localStorage.removeItem("userToken");
+      localStorage.removeItem("user");
       state.user = null;
       state.userToken = null;
       state.loading = false;
       state.error = null;
-    },
-    setCredentials: (state, action) => {
-      state.user = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -72,4 +69,4 @@ export const authSlice = createSlice({
   },
 });
 
-export const {logout, setCredentials} = authSlice.actions;
+export const { logout } = authSlice.actions;
